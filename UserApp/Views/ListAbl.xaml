@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:local="clr-namespace:UserApp.ViewModels"
+             mc:Ignorable="d"
+             x:Class="UserApp.Views.ListAbl">
+    <ContentPage.BindingContext>
+        <local:ListAblViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout>
+
+        <yummy:PancakeView CornerRadius="40,40,40,40" Margin="10,20,10,10" BackgroundColor="White" >
+            <ListView ItemsSource="{Binding AlAblum}" BackgroundColor="#E9EBEC" RowHeight="180">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <yummy:PancakeView CornerRadius="10" BackgroundColor="White" Margin="10,15" >
+                                <StackLayout Padding="10" Spacing="6">
+                                    <StackLayout Orientation="Horizontal" Padding="10">
+                                        <Label Text="{Binding Id}" FontSize="18" TextColor="Black" FontAttributes="Bold" HorizontalOptions="StartAndExpand"/>
+                                    </StackLayout>
+                                    <Grid>
+                                        <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand">
+
+                                            <Label  Text="{Binding Title}" TextColor="Black" FontAttributes="Bold" />
+                                        </StackLayout>
+
+                                    </Grid>
+                                </StackLayout>
+                            </yummy:PancakeView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </yummy:PancakeView>
+
+    </StackLayout>
+</ContentPage>
